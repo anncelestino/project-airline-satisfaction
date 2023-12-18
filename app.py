@@ -25,12 +25,12 @@ from streamlit_player import st_player
 
 
 ### Reading CSVs
-df = pd.read_csv('/Users/ann/Documents/coding-temple/05-week/project-airline-satisfaction/data/cleaned_train.csv')
-df_test = pd.read_csv('/Users/ann/Documents/coding-temple/05-week/project-airline-satisfaction/data/cleaned_test.csv')
-df1 = pd.read_csv('/Users/ann/Documents/coding-temple/05-week/project-airline-satisfaction/data/train.csv')
-df2 = pd.read_csv('/Users/ann/Documents/coding-temple/05-week/project-airline-satisfaction/data/test.csv')
+df = pd.read_csv('data/cleaned_train.csv')
+df_test = pd.read_csv('data/cleaned_test.csv')
+df1 = pd.read_csv('data/train.csv')
+df2 = pd.read_csv('data/test.csv')
 
-
+df3 = pd.read_csv('data/cleaned_test.csv')
 
 
 
