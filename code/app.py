@@ -130,7 +130,7 @@ if page == "2. Data Overview 📚":
     
     with col1:
         st.subheader("**:blue[About the Data] ✈**")
-        st.write(">This dataset consists of various columns on airline passenger flight information ranging from delays to satisfaction rates. **The original dataset was obtained from Kaggle which you can find [here](https://www.kaggle.com/datasets/teejmahal20/airline-passenger-satisfaction/data). The dataset can also be downloaded below!**")
+        st.write(">This dataset consists of various columns on airline passenger flight information ranging from flight distance, seat comfort, inflight entertainment, and more. **The original dataset was obtained from Kaggle which you can find [here](https://www.kaggle.com/datasets/teejmahal20/airline-passenger-satisfaction/data). The dataset can also be downloaded below!**")
         # Download
         @st.cache_data
         def convert_df(df):
@@ -144,7 +144,7 @@ if page == "2. Data Overview 📚":
             mime='text/csv')
         
     with col2:
-        st.image("https://www.nerdwallet.com/assets/blog/wp-content/uploads/2021/04/GettyImages-172672886.jpg")
+        st.image("https://imageio.forbes.com/specials-images/imageserve/650bde4119f477fad93349ea/Tampa-International-Airport-named-the-best-Large-airport-in-America-/960x0.jpg?height=473&width=711&fit=bounds")
 
     st.write("---")
     
@@ -340,7 +340,7 @@ if page == "3. EDA 🔍":
 # Build Modeling Page
 if page == "4. Modeling ⚙️":
     st.title(":gear: Modeling ✈")
-    st.markdown(">**On this page, you can see how well different :blue[machine learning models] make :violet[predictions] on the :orange[satisfaction rates]!**")
+    st.markdown(">**On this page, you can see how well different :blue[machine learning models] make :violet[predictions] on :orange[customer satisfaction rates]!**")
 
     def load_lottieurl(url: str):
             r = requests.get(url)
@@ -386,7 +386,11 @@ if page == "4. Modeling ⚙️":
             st.subheader("Confusion Matrix:")
             ConfusionMatrixDisplay.from_estimator(model, X_test, y_test, cmap = 'Blues')
             st.pyplot()
-    
+
+    container2 = st.container(border=True)
+    container2.write("***Compare to the Baseline Score***")
+    container2.write(":red[Neutral or Dissatisfied]: 56.61%")
+    container2.write(":orange[Satisfied]: 43.34%")
 
 # Build Predictions Page
 if page == "5. Make Predictions! 🔮":
