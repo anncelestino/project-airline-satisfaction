@@ -60,13 +60,13 @@ page = st.sidebar.selectbox("Select a Destination", ["1. Home 🏡", "2. Data Ov
 ### Adding music
 st.write("🎵 Here's some inflight cabin music while you browse our app 💺 Buckle up and enjoy!")
 
-audio_file = open('/Users/ann/Downloads/Frank_Sinatra_Come_Fly_With_Me_1958_.mp3', 'rb')
-audio_file1 = open('/Users/ann/Downloads/_The_Girl_from_Ipanema_Astrud_Gilberto_João_Gil.mp3', 'rb')
-audio_file2 = open('/Users/ann/Downloads/The_Byrds_Eight_Miles_High_Audio_.mp3', 'rb')
-audio_file3 = open('/Users/ann/Downloads/Elton_John_Rocket_Man_Official_Music_Video_.mp3', 'rb')
-audio_file4 = open('/Users/ann/Downloads/B_o_B_Airplanes_feat_Hayley_Williams_of_Paramo.mp3', 'rb')
-audio_file5 = open('/Users/ann/Downloads/Leaving_On_a_Jet_Plane_Greatest_Hits_Version_.mp3', 'rb')
-audio_file6 = open('/Users/ann/Downloads/Galantis_Mama_Look_At_Me_Now_Official_Audio_.mp3', 'rb')
+audio_file = open('audio/Frank_Sinatra_Come_Fly_With_Me_1958_.mp3', 'rb')
+audio_file1 = open('audio/_The_Girl_from_Ipanema_Astrud_Gilberto_João_Gil.mp3', 'rb')
+audio_file2 = open('audio/The_Byrds_Eight_Miles_High_Audio_.mp3', 'rb')
+audio_file3 = open('audio/Elton_John_Rocket_Man_Official_Music_Video_.mp3', 'rb')
+audio_file4 = open('audio/B_o_B_Airplanes_feat_Hayley_Williams_of_Paramo.mp3', 'rb')
+audio_file5 = open('audio/Leaving_On_a_Jet_Plane_Greatest_Hits_Version_.mp3', 'rb')
+audio_file6 = open('audio/Galantis_Mama_Look_At_Me_Now_Official_Audio_.mp3', 'rb')
 audio_bytes = (audio_file.read() + audio_file1.read() + audio_file2.read() + audio_file3.read() + audio_file4.read() + audio_file5.read() + audio_file6.read()) * 2 
 st.audio(audio_bytes, format='audio/mp3')
 
