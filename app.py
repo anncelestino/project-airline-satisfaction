@@ -67,7 +67,7 @@ audio_file3 = open('audio/Elton_John_Rocket_Man_Official_Music_Video_.mp3', 'rb'
 audio_file4 = open('audio/B_o_B_Airplanes_feat_Hayley_Williams_of_Paramo.mp3', 'rb')
 audio_file5 = open('audio/Leaving_On_a_Jet_Plane_Greatest_Hits_Version_.mp3', 'rb')
 audio_file6 = open('audio/Galantis_Mama_Look_At_Me_Now_Official_Audio_.mp3', 'rb')
-audio_bytes = (audio_file.read() + audio_file1.read() + audio_file2.read() + audio_file3.read() + audio_file4.read() + audio_file5.read() + audio_file6.read()) * 2 
+audio_bytes = (audio_file.read() + audio_file1.read() + audio_file2.read() + audio_file3.read() + audio_file4.read() + audio_file5.read() + audio_file6.read())
 st.audio(audio_bytes, format='audio/mp3')
 
 st.write("---") 
@@ -84,7 +84,7 @@ if page == "1. Home 🏡":
     with col1:
 
         st.title("**✈︎ :orange[Analyze Airline Passenger Experiences]**")
-        st.subheader(":grey[Using] ✨ The Passenger Airline Satisfaction Dataset Explorer App ✨")
+        st.subheader(":grey[Using] ✨ The Airline Passenger Satisfaction Dataset Explorer App ✨")
 
     with col2:
 
