@@ -339,7 +339,7 @@ if page == "3. EDA 🔍":
 
 # Build Modeling Page
 if page == "4. Modeling ⚙️":
-    st.title(":gear: Modeling ✈")
+    st.title("🤖 Modeling ✈")
     st.markdown(">**On this page, you can see how well different :blue[machine learning models] make :violet[predictions] on :orange[customer satisfaction rates]!**")
 
     def load_lottieurl(url: str):
