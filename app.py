@@ -69,7 +69,7 @@ audio_file = open('audio/Frank_Sinatra_Come_Fly_With_Me_1958_.mp3', 'rb')
 # audio_file6 = open('audio/Galantis_Mama_Look_At_Me_Now_Official_Audio_.mp3', 'rb')
 audio_bytes = (audio_file.read()) 
 #+ audio_file1.read() + audio_file2.read() + audio_file3.read() + audio_file4.read() + audio_file5.read() + audio_file6.read())
-st.audio(audio_bytes, format='audio/mp3')
+st.audio(audio_bytes, format='audio/mpeg')
 
 st.write("---") 
 
