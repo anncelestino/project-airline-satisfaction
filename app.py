@@ -553,10 +553,9 @@ if page == "5. Make Predictions! 🔮":
         if container5.button("Let's fly!"):
             st.write("Give it a few seconds to load.")
             with st.spinner('Wait for it...'):
-                time.sleep(15)
-                st.success('Done!')
                 model.fit(X, y)
                 prediction = model.predict(user_input)
+                st.success('The results are in!')
         # make_prediction()
             if prediction == "neutral or dissatisfied":
                 container5.header(f"{model} predicts that you or your passenger will be :red[{prediction[0]}] with their airline flight. Try adjusting the sliders higher in certain categories or try a selecting a higher tier flight to see if your passenger will acheive :rainbow[satisfaction].")
