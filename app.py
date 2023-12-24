@@ -565,6 +565,8 @@ if page == "5. Make Predictions! 🔮":
                 st.balloons()
             # else:
                 # container5.header("The Passenger Form is :red[missing] some information. Please recheck your inputs.")
+            else:
+                st.write("The Passenger Form is :red[missing] some information. Please recheck your inputs.")
 
 st.divider()
 st.write("🔧 Last Updated: Decemember 23, 2023")
