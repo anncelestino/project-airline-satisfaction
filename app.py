@@ -429,6 +429,8 @@ if page == "5. Make Predictions! 🔮":
             sex = 1
         if sex == "Female":
             sex = 0
+    else:
+        container2.write(":red[Please select one]")
     cl = container2.radio("Pick a class", ["Business", "Eco Plus", "Eco"], index=None)
     if cl:
         container2.write(f'You are flying in **{cl}** class')
@@ -445,7 +447,7 @@ if page == "5. Make Predictions! 🔮":
         if cl != "Eco":
             c_e = 0
     else:
-        st.write("Missing inputs")
+        container2.write(":red[Please select one]")
         c_b = 1
         c_ep = 0
         c_e = 0
@@ -456,13 +458,17 @@ if page == "5. Make Predictions! 🔮":
             t_t = 1
         if t_t == "Personal":
             t_t = 0
+    else:
+        container2.write(":red[Please select one]")
     c_t = container2.radio("Are you loyal to one airline?", ["Yes", "No"], index=None)
     if c_t == "Yes":
         container2.write(f'You are a **loyal customer**')
         c_t = 1
-    if c_t == "No":
+    elif c_t == "No":
         container2.write('You are a **disloyal customer**')
         c_t = 0
+    else:
+        container2.write(":red[Please select one]")
 
     # Create sliders for user to input data
     col1, col2 = st.columns([3,1])
@@ -551,8 +557,8 @@ if page == "5. Make Predictions! 🔮":
             # msg.toast('Ready!', icon = "🔮")
 
         if container5.button("Let's fly!"):
-            st.write("Give it a few seconds to load.")
             with st.spinner('Wait for it...'):
+                st.write("Give it a few seconds to load.")
                 model.fit(X, y)
                 prediction = model.predict(user_input)
                 st.success('The results are in!')
@@ -565,8 +571,6 @@ if page == "5. Make Predictions! 🔮":
                 st.balloons()
             # else:
                 # container5.header("The Passenger Form is :red[missing] some information. Please recheck your inputs.")
-            else:
-                st.write("The Passenger Form is :red[missing] some information. Please recheck your inputs.")
 
 st.divider()
 st.write("🔧 Last Updated: Decemember 23, 2023")
