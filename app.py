@@ -395,7 +395,7 @@ if page == "4. Modeling ⚙️":
 # Build Predictions Page
 if page == "5. Make Predictions! 🔮":
     st.title("🔮 Predictions ✈")
-    st.markdown(">**On this page, you can make :violet[predictions] whether or not the passenger will be :rainbow[satisified] or :red[neutral/dissatisfied] with their flight based on your inputs using the Model of your choice!**")
+    st.markdown(">**On this page, you can make :violet[predictions] whether or you or a potential passenger will be :rainbow[satisified] or :red[neutral/dissatisfied] with their flight based on your inputs using the Model of your choice!**")
     def load_lottieurl(url: str):
             r = requests.get(url)
             if r.status_code != 200:
@@ -411,17 +411,17 @@ if page == "5. Make Predictions! 🔮":
     container3 = st.container(border=True)
     container4 = st.container(border=True)
 
-    container2.subheader("Who is the Passenger? Input your passenger's info on the form below ⬇")
+    container2.subheader("Who is the Passenger? Input the passenger's info on the form below ⬇")
     container2.divider()
     container2.subheader("Input an Number")
-    age_num = container2.number_input("What\'s your age? Pick an age from 1 to 100", min_value = 1, max_value = 100, step = 1, value=None, placeholder="Type a number...")
+    age_num = container2.number_input("What\'s the age of the passenger? Pick an age from 1 to 100", min_value = 1, max_value = 100, step = 1, value=None, placeholder="Type a number...")
     if age_num:
         container2.write(f'The age is {age_num}')
     else:
         container2.write(":red[Please enter the age]")
 
     container2.subheader("Select Your Categories")
-    sex = container2.radio("What's your sex?",
+    sex = container2.radio("What's the passenger's sex?",
     ["Male", "Female"], index=None,)
     if sex:
         container2.write(f'You selected: **{sex}**')
@@ -463,7 +463,7 @@ if page == "5. Make Predictions! 🔮":
     col1, col2 = st.columns([3,1])
 
     with col1:
-        container3.subheader("Adjust the sliders to input your :red[Satisfaction Levels] (1-5) for each category:")
+        container3.subheader("How much does your passenger care about the following? Adjust the sliders to input the :rainbow[desired] level (1-5) for each category (1 being the least and 5 being the most):")
         inf = container3.slider("Inflight Wifi Service 🛜", 1, 5, 3, 1)
         d_a = container3.slider("Departure/Arrival Time Convenient 🛫", 1, 5, 3, 1)
         o_b = container3.slider("Online Booking 💻", 1, 5, 3, 1)
@@ -480,8 +480,9 @@ if page == "5. Make Predictions! 🔮":
         cl = container3.slider("Cleanliness 🫧", 1, 5, 3, 1)
         
     with col2:
-        container4.subheader("Flight Distance and Delays")
+        container4.subheader("How far is your passenger flying?")
         fl = container4.slider("Flight Distance in Miles ✈️", 10, 5000, 10, 10)
+        container4.subheader("Is your passenger ok with experiencing delays? If so, how long?")
         m_d = container4.slider("Departure Delay in Minutes ⏰", 0, 1600, 0, 1)
         m_a = container4.slider("Arrival Delay in Minutes 🛬", 0, 1600, 0, 1)
 
@@ -523,18 +524,18 @@ if page == "5. Make Predictions! 🔮":
 
     # Model Selection
     container5= st.container(border=True)
-    container5.header("Time to Fit Our Model!")
-    model_option = container5.selectbox("Select a Model", ["KNN", "Logistic Regression", "Random Forest"], index = None)
+    container5.header("Time to find out if your passenger will be satisfied or not!")
+    model_option = container5.selectbox("The model we are using is", ["Random Forest"])
     
     if model_option:
 
         # Instantiating & fitting selected model
-        if model_option == "KNN":
-            k_value = container5.slider("Select the number of neighbors (k)", 1, 21, 5, 2)
-            model = KNeighborsClassifier(n_neighbors=k_value)
-        elif model_option == "Logistic Regression":
-            model = LogisticRegression()
-        elif model_option == "Random Forest":
+        # if model_option == "KNN":
+        #     k_value = container5.slider("Select the number of neighbors (k)", 1, 21, 5, 2)
+        #     model = KNeighborsClassifier(n_neighbors=k_value)
+        # elif model_option == "Logistic Regression":
+        #     model = LogisticRegression()
+        if model_option == "Random Forest":
             model = RandomForestClassifier()
         
         # def make_prediction():
@@ -544,21 +545,22 @@ if page == "5. Make Predictions! 🔮":
             # time.sleep(1)
             # msg.toast('Ready!', icon = "🔮")
 
-        if container5.button("Make a Prediction!"):
-            model.fit(X, y)
-            prediction = model.predict(user_input)
-        # make_prediction()
+        if container5.button("Let's fly!"):
+            st.write("Give it a few seconds to load.")
             with st.spinner('Wait for it...'):
-                time.sleep(5)
+                time.sleep(15)
                 st.success('Done!')
+                model.fit(X, y)
+                prediction = model.predict(user_input)
+        # make_prediction()
             if prediction == "neutral or dissatisfied":
-                container5.header(f"{model} predicts that your passenger will be :red[{prediction[0]}] with their airline flight.")
+                container5.header(f"{model} predicts that you or your passenger will be :red[{prediction[0]}] with their airline flight. Try adjusting the sliders higher in certain categories or try a selecting a higher tier flight to see if your passenger will acheive :rainbow[satisfaction].")
                 st.snow()
             if prediction == "satisfied":
-                container5.header(f"{model} predicts that your passenger will be :rainbow[{prediction[0]}] with their airline flight!")
+                container5.header(f"{model} predicts that your passenger will be :rainbow[{prediction[0]}] with their airline flight! :orange[Congratulations]!")
                 st.balloons()
-            else:
-                container5.header("The Passenger Form is :red[missing] some information. Please recheck your inputs.")
+            # else:
+                # container5.header("The Passenger Form is :red[missing] some information. Please recheck your inputs.")
 
 st.divider()
 st.write("🔧 Last Updated: Decemember 18, 2023")
