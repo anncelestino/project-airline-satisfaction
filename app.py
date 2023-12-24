@@ -116,7 +116,7 @@ if page == "1. Home 🏡":
     st.divider()
     container = st.container(border=True)
     container.write("💡 **:red[TIP]**: Get started by selecting a Destination Page by clicking on the arrow on the top left corner. I recommend working your way down the list, starting from the Data Overview Page to the Make Predictions Page, to get the full experience. :orange[Enjoy]! 🎈")
-    st.write("***This was originally created for my Week 5: Intro to ML - Classification project at Coding Temple for the purpose of creating an interactive and user-friendly app with the primary focus of analyzing and predicting customer satisfaction.***")
+    st.write("***This was originally created for my Week 5: Intro to Machine Learning - Classification project at Coding Temple for the purpose of creating an interactive and user-friendly app with the primary focus of analyzing and predicting customer satisfaction.***")
     container2 = st.container(border=True)
 
 
@@ -563,4 +563,4 @@ if page == "5. Make Predictions! 🔮":
                 # container5.header("The Passenger Form is :red[missing] some information. Please recheck your inputs.")
 
 st.divider()
-st.write("🔧 Last Updated: Decemember 18, 2023")
+st.write("🔧 Last Updated: Decemember 23, 2023")
