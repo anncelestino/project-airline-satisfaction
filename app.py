@@ -444,6 +444,11 @@ if page == "5. Make Predictions! 🔮":
             c_e = 1
         if cl != "Eco":
             c_e = 0
+    else:
+        st.write("Missing inputs")
+        c_b = 1
+        c_ep = 0
+        c_e = 0
     t_t = container2.radio("Pick a travel type", ["Business", "Personal"], index=None)
     if t_t:
         container2.write(f'This is a **{t_t}** travel')
